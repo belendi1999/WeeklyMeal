@@ -1,13 +1,13 @@
 <div class='container'>
-  <h1>Characters list</h1>
+  <h1>Choose your favorites recipes!</h1>
 
   <div class='row row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 my-5'>
   {{!-- image name status --}}
     {{#each characters}}
     <div class='col'>
       <div class='card shadow-sm'>
-        <img src="{{image}}" alt="">
-        <p>{{name}}</p>
+        <img src="{{recipe.image}}" alt="">
+        <p>{{recipe.label}}</p>
         <p>{{status}}</p>
         <form action = "/add-favorite" method="POST">
           

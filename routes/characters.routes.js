@@ -13,7 +13,8 @@ router.get('/characters',(req, res)=>{
     CharactersAPI
     .getAllCharacters()
     .then((allCharacters) => {
-        res.render(`characters/list`, {characters: allCharacters.data.results} )
+      console.log( "HOLA", allCharacters.data.hits)
+        res.render('characters/list', {characters: allCharacters.data.hits} )
     
     })
     .catch(err => console.log(err));
