@@ -1,4 +1,23 @@
-<h1>{{title}} 🚀</h1>
-<h2>{{subtitle}} 🚀</h2>
-<p>Welcome Ironhacker!</p>
+<section class="form-wrapper">
 
+<div class="form-menu">
+  <a class="nav-link" href="/auth/signup">Signup</a>
+  <a class="nav-link" href="/auth/login">Login</a>
+   <a class="nav-link" href="/auth/logout">Logout</a>
+</div>
+
+<div class="form">
+  <form action="/auth/signup" method="POST">
+    <label> Username <br>
+        <input type="text" name="username">
+    </label>
+    <br>
+    <label> Password <br>
+        <input type="password" name="password">
+    </label>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+</section>
