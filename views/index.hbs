@@ -1,5 +1,22 @@
-<h1>{{title}} 🚀</h1>
-<h2>{{subtitle}} 🚀</h2>
-<p>Welcome Ironhacker!</p>
+<section class="form-wrapper">
 
-<p style ="color: red;">Esta sería la home</p>
+<div>
+  <a class="nav-link" href="/auth/signup">Signup</a>
+  <a class="nav-link" href="/auth/login">Login</a>
+   <a class="nav-link" href="/auth/logout">Logout</a>
+</div>
+
+<div>
+  <form action="/auth/signup" method="POST">
+    <label> Username
+        <input type="text" name="username">
+    </label>
+    <label> Password
+        <input type="password" name="password">
+    </label>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+</section>
