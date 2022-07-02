@@ -2,19 +2,19 @@ const router = require("express").Router();
 
 const alert = require("alert");
 const isLoggedIn = require("../middleware/isLoggedIn");
-const Character = require("../models/Character.model");
+const Character = require("../models/recipe.model");
 const User = require("../models/User.model");
 const Api = require("../services/ApiHandler");
-const CharactersAPI = new Api()
+const RecipesAPI = new Api()
 
-router.get('/characters',(req, res)=>{
+router.get('/recipes',(req, res)=>{
     
     
-    CharactersAPI
-    .getAllCharacters()
-    .then((allCharacters) => {
-      console.log( "HOLA", allCharacters.data.hits)
-        res.render('characters/list', {characters: allCharacters.data.hits} )
+    RecipesAPI
+    .getAllRecipes()
+    .then((allRecipes) => {
+      console.log( "HOLA", allRecipes.data.hits)
+        res.render('recipes/list', {recipes: allRecipes.data.hits} )
     
     })
     .catch(err => console.log(err));
@@ -26,17 +26,17 @@ router.get('/characters',(req, res)=>{
 router.post("/add-favorite", isLoggedIn ,(req, res) =>{
 const query = { name, status, species, gender, image, apiId } = req.body
 const idToCheck = req.body.apiId;
-    Character.find({apiId: idToCheck})
-	.then (charArray => {
+    Recipe.find({apiId: idToCheck})
+	.then (RecipArray => {
 		//comprobar si ese apiId ya esta en db characters
-		if (charArray.length === 0) {
-            Character
+		if (RecipArray.length === 0) {
+            Recipe
                 .create(query)
                 .then(result => {
                   User
                     .findByIdAndUpdate(req.user._id,{$push : {favorites : result._id}})
                     .then(()=>{
-                        res.redirect("/characters")
+                        res.redirect("/recipes")
                     })
                 })
                 .catch(err => console.log(err))
@@ -48,9 +48,9 @@ const idToCheck = req.body.apiId;
                     User
                     .findByIdAndUpdate(req.user._id,{$push : {favorites : charArray[0]._id}})
                     .then(()=>{
-                        res.redirect("/characters")
+                        res.redirect("/recipes")
                     })
-                }else{res.redirect("/characters")}
+                }else{res.redirect("/recipes")}
             })
             .catch((err)=>{
             console.log(err)
