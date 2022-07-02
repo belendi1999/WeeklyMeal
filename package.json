@@ -10,6 +10,7 @@
     "alert": "^5.0.10",
     "axios": "^0.21.4",
     "bcryptjs": "^2.4.3",
+    "bootstrap-icons": "^1.8.3",
     "connect-mongo": "^4.5.0",
     "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
