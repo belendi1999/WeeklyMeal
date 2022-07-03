@@ -2,18 +2,17 @@ const router = require("express").Router();
 
 const alert = require("alert");
 const isLoggedIn = require("../middleware/isLoggedIn");
-const Character = require("../models/recipe.model");
+const Recipe = require("../models/recipe.model");
 const User = require("../models/User.model");
 const Api = require("../services/ApiHandler");
 const RecipesAPI = new Api()
 
-router.get('/recipes',(req, res)=>{
+router.get('/recipes', isLoggedIn, (req, res)=>{
     
     
     RecipesAPI
     .getAllRecipes()
     .then((allRecipes) => {
-      console.log( "HOLA", allRecipes.data.hits)
         res.render('recipes/list', {recipes: allRecipes.data.hits} )
     
     })
@@ -23,15 +22,18 @@ router.get('/recipes',(req, res)=>{
     
 })
 
+// Busca cada tipo de recta
+
+
+
 router.post("/add-favorite", isLoggedIn ,(req, res) =>{
-const query = { name, status, species, gender, image, apiId } = req.body
-const idToCheck = req.body.apiId;
-    Recipe.find({apiId: idToCheck})
+const { apiId } = req.body
+
+    Recipe.find({apiId: apiId})
 	.then (RecipArray => {
-		//comprobar si ese apiId ya esta en db characters
 		if (RecipArray.length === 0) {
             Recipe
-                .create(query)
+                .create({"apiId": apiId})
                 .then(result => {
                   User
                     .findByIdAndUpdate(req.user._id,{$push : {favorites : result._id}})
