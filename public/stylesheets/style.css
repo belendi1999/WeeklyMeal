@@ -4,6 +4,7 @@ body {
   background: linear-gradient(to right, #F2FEDC, #96BCAA);
 }
 
+/* ------------ FORM STYLE ------------ */
 .form-wrapper {
   position: absolute;
   top: 50%;
@@ -22,12 +23,75 @@ body {
   align-items: center;
   align-content: space-between;
   margin-top: 5%;
+  color: #FAFFBE;
 }
 
 .form{
-  
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 15%;
+  text-align: center;
+  gap: 5px;
+  margin-bottom: 5%;
 }
 
+.form input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #FAFFBE;
+  border-radius: 30px;
+  background: #FAFBE9;
+}
+
+.form label{
+  color: #D4A439;
+}
+
+/* ------------ FORM LINKS AUTENTIFICACIÓN ------------ */
+#signup{
+  color:#D4A439;
+  text-decoration: none;
+}
+
+.auth-link{
+color:#96BCAA;
+text-decoration: none;
+}
+
+.auth-link:hover{
+  color:#D4A439;
+  text-decoration: none;
+}
+/* ------------ FORM SUBMIT BUTTON ------------ */
+.submit-button{
+  background: #FAFBE9;
+  color: #D4A439;
+  font-size: 15px;
+  font-weight: 500;
+  height: 50px;
+  line-height: 0.8;
+  padding: 18px 30px;
+  /* text-transform: capitalize; */
+  border-radius: 1px;
+  letter-spacing: 0.5px;
+  border:1px;
+  border-color: #D4A439;
+  cursor:pointer;
+  border-radius:100px;
+}
+
+.submit-button:hover {
+  box-shadow: 0 10px 20px -4px #D4A439;
+}
+
+/* ------------ PREDETERMINADOS ------------ */
 a {
   color: #00b7ff;
 }
