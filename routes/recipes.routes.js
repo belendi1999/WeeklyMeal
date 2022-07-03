@@ -7,13 +7,12 @@ const User = require("../models/User.model");
 const Api = require("../services/ApiHandler");
 const RecipesAPI = new Api()
 
-router.get('/recipes',(req, res)=>{
+router.get('/recipes', isLoggedIn, (req, res)=>{
     
     
     RecipesAPI
     .getAllRecipes()
     .then((allRecipes) => {
-      console.log( "HOLA", allRecipes.data.hits)
         res.render('recipes/list', {recipes: allRecipes.data.hits} )
     
     })
@@ -23,6 +22,10 @@ router.get('/recipes',(req, res)=>{
     
 })
 
+// Busca cada tipo de recta
+
+
+
 router.post("/add-favorite", isLoggedIn ,(req, res) =>{
 const { apiId } = req.body
 
@@ -30,7 +33,7 @@ const { apiId } = req.body
 	.then (RecipArray => {
 		if (RecipArray.length === 0) {
             Recipe
-                .create(query)
+                .create({"apiId": apiId})
                 .then(result => {
                   User
                     .findByIdAndUpdate(req.user._id,{$push : {favorites : result._id}})
