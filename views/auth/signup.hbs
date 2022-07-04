@@ -1,13 +1,32 @@
-<form action="/auth/signup" method="POST">
-   <label> Username
-      <input type="text" name="username">
-   </label>
-   <label> Password
-      <input type="password" name="password">
-   </label>
+<section class="form-wrapper">
+<h1>Estás en el Signup!</h1>
 
-   <button type="submit">Submit</button>
-</form>
+<div class="form-menu">
+  <a id="signup" href="/auth/signup">Signup</a>
+</div>
+
+
+<div>
+  <form action="/auth/signup" method="POST" class="form">
+    <label> Username <br>
+    <input type="text" name="username">
+    </label>
+
+    <br>
+
+    <label> Password <br>
+    <input type="password" name="password">
+    </label>
+
+    <br>
+
+    <button class="submit-button" type="submit">Submit</button>
+  </form>
+</div>
+
+</section>
+
+
 
 {{#if errorMessage}}
 <p class="error">{{errorMessage}}</p>

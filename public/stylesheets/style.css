@@ -56,6 +56,7 @@ body {
 
 /* ------------ FORM LINKS AUTENTIFICACIÓN ------------ */
 #signup{
+  font-size: 25px;
   color:#D4A439;
   text-decoration: none;
 }
