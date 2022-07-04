@@ -9,7 +9,7 @@ const RecipesAPI = new Api()
 
 router.get('/recipes', isLoggedIn, (req, res)=>{
     
-    if(prueba === true){
+    //if(prueba === true){
         RecipesAPI
         .getAllRecipes()
         .then((allRecipes) => {
@@ -17,8 +17,8 @@ router.get('/recipes', isLoggedIn, (req, res)=>{
         
         })
         .catch(err => console.log(err));
-    }
-    res.render("recipes/list")
+    //}
+    //res.render("recipes/list")
     
     
 })
@@ -42,10 +42,10 @@ router.post('/recipe-search', (req, res, next) => {
     RecipesAPI
 
     .getOneRecipe(ingredients) 
-    .then((data) =>{
+    .then((result) =>{
         //const recipes = data.body.recipes.items;
-   
-    res.render('recipes/recipe-search', {data})
+   console.log(result.data)
+    res.render('recipes/recipe-search', {data: result.data})
     })
     .catch((err) =>
         console.log ('The error while searching artists occurred: ', err))
