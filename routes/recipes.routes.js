@@ -1,5 +1,5 @@
 const router = require("express").Router();
-
+const prueba = require("../utils/variables")
 const alert = require("alert");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const Recipe = require("../models/recipe.model");
@@ -9,15 +9,16 @@ const RecipesAPI = new Api()
 
 router.get('/recipes', isLoggedIn, (req, res)=>{
     
-    
-    RecipesAPI
-    .getAllRecipes()
-    .then((allRecipes) => {
-        res.render('recipes/list', {recipes: allRecipes.data.results} )
-    
-    })
-    .catch(err => console.log(err));
-    
+    if(prueba === true){
+        RecipesAPI
+        .getAllRecipes()
+        .then((allRecipes) => {
+            res.render('recipes/list', {recipes: allRecipes.data.results} )
+        
+        })
+        .catch(err => console.log(err));
+    }
+    res.render("recipes/list")
     
     
 })
