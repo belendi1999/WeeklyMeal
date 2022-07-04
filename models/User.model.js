@@ -5,8 +5,7 @@ const userSchema = new Schema({
   username: String,
   password: String,
   favorites:  [{	
-    type: Schema.Types.ObjectId,
-		ref: "Recipe"
+    type: String
   }]
   //referencias de la bd characrters
 });

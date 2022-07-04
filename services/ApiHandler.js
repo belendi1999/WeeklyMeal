@@ -4,11 +4,11 @@ const axios = require('axios');
 class RecipesApi {
   constructor() {
     this.api = axios.create({
-      baseURL: 'https://api.edamam.com/api/recipes/v2'
+      baseURL: 'https://api.spoonacular.com/recipes/complexSearch'
     });
   }
 
-  getAllRecipes = () => this.api.get('?type=public&q=pasta&app_id=d569f124&app_key=fe0597d512f178c092e803981c8dc8a2');
+  getAllRecipes = () => this.api.get('?number=100&apiKey=057ed7cd00b748b58e922b5c1feb217c');
 
 }
 
