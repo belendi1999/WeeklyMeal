@@ -34,29 +34,35 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
     
 })
 
-/*app.get('/artist-search', (req, res, next) => {
-    spotifyApi
-    .searchArtists(req.query.artistName)
+
+
+router.post('/recipe-search', (req, res, next) => {
+    let ingredients = req.body.search
+    RecipesAPI
+
+    .getOneRecipe(ingredients) 
     .then((data) =>{
-        const artists = data.body.artists.items;
-        console.log(artists)
-        res.render('artist-search', {artists})
+        //const recipes = data.body.recipes.items;
+   
+    res.render('recipes/recipe-search', {data})
     })
     .catch((err) =>
         console.log ('The error while searching artists occurred: ', err))
     })
 
-app.get('/albums/:artistId', (req, res, next) =>{
-    spotifyApi
-    .getArtistAlbums(req.params.artistId)
-    .then((data) =>{
-        const findAlbum = data.body.items;
-        console.log (findAlbum)
-        res.render('albums', {findAlbum})
+router.get('/recipes/:recipeId', (req, res, next) =>{
+        RecipesAPI
+        .getRecipes(req.params.recipeId)
+        .then((data) =>{
+            const findRecipe = data.body.items;
+            res.render('recipes', {findRecipe})
+        })
+        .catch((err) =>
+        console.log ('The error while searching artists occurred: ', err))
     })
-    .catch((err) =>
-    console.log ('The error while searching artists occurred: ', err))
-}) */
+
+
+
 
 
 router.post("/delete-favorite",isLoggedIn,(req,res)=>{
