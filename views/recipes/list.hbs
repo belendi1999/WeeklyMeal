@@ -6,18 +6,10 @@
     {{#each recipes}}
     <div class='col'>
       <div class='card shadow-sm'>
-        <img src="{{recipe.image}}" alt="">
-        <p>{{recipe.label}}</p>
-        <p>{{status}}</p>
+        <img src="{{this.image}}" alt="">
+        <p>{{this.title}}</p>
         <form action = "/add-favorite" method="POST">
-          
-          <input type="hidden" name="name" value={{name}}>
-          <input type="hidden" name="status" value={{status}}>
-          <input type="hidden" name="species" value={{species}}>
-          <input type="hidden" name="gender" value={{gender}}>
-          <input type="hidden" name="image" value={{image}}>
           <input type="hidden" name="apiId" value={{id}}>
-
           <button type="submit">Añadir a favoritos</button>
         </form>
       </div>
