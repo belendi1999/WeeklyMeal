@@ -1,9 +1,29 @@
 <section class="form-wrapper">
 
 <div class="form-menu">
-  <a class="nav-link" href="/auth/signup">Signup</a>
-  <a class="nav-link" href="/auth/login">Login</a>
-  <a class="nav-link" href="/auth/logout">Logout</a>
+  <a id="login" href="/auth/login">Login</a>
+  {{!-- <a class="auth-link" href="/auth/logout">Logout</a> --}}
+</div>
+
+
+<div>
+  <form action="/auth/signup" method="POST" class="form">
+    <label> Username <br>
+    <input type="text" name="username">
+    </label>
+
+    <br>
+
+    <label> Password <br>
+    <input type="password" name="password">
+    </label>
+
+    <br>
+
+    <button class="submit-button" type="submit">Submit</button>
+    
+    <p class="text-form">Not registred? <a class="auth-link" href="/auth/signup">Signup</a></p>
+  </form>
 </div>
 
 </section>

@@ -60,6 +60,16 @@ body {
   text-decoration: none;
 }
 
+#login{
+  font-size: 25px;
+  color:#D4A439;
+  text-decoration: none;
+}
+
+.text-form{
+  color: #cfcac4;
+}
+
 .auth-link{
 color:#96BCAA;
 text-decoration: none;
@@ -78,13 +88,13 @@ text-decoration: none;
   height: 50px;
   line-height: 0.8;
   padding: 18px 30px;
-  /* text-transform: capitalize; */
   border-radius: 1px;
   letter-spacing: 0.5px;
   border:1px;
   border-color: #D4A439;
   cursor:pointer;
   border-radius:100px;
+  margin-bottom: 5%;
 }
 
 .submit-button:hover {
