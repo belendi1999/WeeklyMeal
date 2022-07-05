@@ -5,6 +5,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const Recipe = require("../models/recipe.model");
 const User = require("../models/User.model");
 const Api = require("../services/ApiHandler");
+const { findById } = require("../models/recipe.model");
 const RecipesAPI = new Api()
 
 router.get('/recipes', isLoggedIn, (req, res)=>{
@@ -28,25 +29,65 @@ router.get('/recipes', isLoggedIn, (req, res)=>{
   
 
 router.post("/add-favorite", isLoggedIn ,(req, res) =>{
-    
-    const { apiId } = req.body
-    console.log(req.body)
 
-    Recipe.create({
-        name,
-        description,
-        image,
-        ingredients,
-        steps,
-      });
+    //--> Recojo los valores de la receta en 'query'
+    const query = ({title, description, image, ingredients, steps, apiId} = req.body);
+    //--> Es la id de esta receta en la API externa
+    const idToCheck = req.body.apiId;
+    // const { apiId } = req.body
+    // console.log(req.body)
 
-    Recipe
-    .findById(recipeId)
-    .populate('user')
-    .then(recipe => {
-        res.render('recipes/favorites.hbs', recipe)
+    // Recipe.create({
+    //     name,
+    //     description,
+    //     image,
+    //     ingredients,
+    //     steps,
+    //   });
+
+    //--> Busco en mi BBDD una receta que tenga esta api
+    Recipe.findOne({apiId: idToCheck})
+    .then((recipeFound) => {
+        //Si no está...
+        if(!recipeFound){
+            //...la creo
+            Recipe.create(query)
+            .then((recetaRecienCreada) => {
+                //Vamos a añadir el id nuevo de esta receta a la lista de favoritos del user
+                User.findByIdAndUpdate(req.user.id,{
+                    $push: { favorites: recetaRecienCreada} 
+                })
+            })
+            .catch((err) => console.log(err));
+
+        }else {
+            //Busca el usuario en el que queremos incluir el favorito
+            User,findById(req.user.id)
+            .then((userEncontrado) => {
+                //Compruebo que este usuario NO tenga ya esta receta en su lista de favoritos
+                if(!userEncontrado.favorites.includes(recetaFound.id)){
+                    //En caso de no tenerla
+                    //Añade la id nueva de esta receta a la lista de favoritos del user
+                    User.findByIdAndUpdate(req.user.id, {
+                        $push: { favorites: recetaFound.id }
+                    })
+                    
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        }
     })
-    .catch(err => console.log(err))
+
+
+    // Recipe
+    // .findById(recipeId)
+    // .populate('user')
+    // .then(recipe => {
+    //     res.render('recipes/favorites.hbs', recipe)
+    // })
+    // .catch(err => console.log(err))
 })
 
 
