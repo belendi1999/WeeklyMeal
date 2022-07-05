@@ -14,12 +14,11 @@
     {{#each recipes}}
     <div class='col'>
       <div class='card shadow-sm'>
+        <a class="image"
+        href="recipes/{{this.id}}">
         <img src="{{this.image}}" alt="">
+        </a>
         <p>{{this.title}}</p>
-        <form action = "/add-favorite" method="POST">
-          <input type="hidden" name="apiId" value={{id}}>
-          <button type="submit">Añadir a favoritos</button>
-        </form>
       </div>
     </div>
     {{/each}}    

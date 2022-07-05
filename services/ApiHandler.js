@@ -9,7 +9,8 @@ class RecipesApi {
   }
 
   getAllRecipes = () => this.api.get('/complexSearch?number=100&apiKey=2eeee54314954b658a830fb77ad646dc');
-  getOneRecipe = (ingredients) => this.api.get (`/findByIngredients?number=100&apiKey=2eeee54314954b658a830fb77ad646dc&ingredients=${ingredients}`);
+  getRecipesWithIngredients = (ingredients) => this.api.get (`/findByIngredients?number=100&apiKey=2eeee54314954b658a830fb77ad646dc&ingredients=${ingredients}`);
+  getOneRecipe = (id) => this.api.get(`/${id}/information?apiKey=057ed7cd00b748b58e922b5c1feb217c`)
 }
 
 

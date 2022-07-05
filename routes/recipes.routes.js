@@ -31,7 +31,7 @@ router.get('/recipes', isLoggedIn, (req, res)=>{
 router.post("/add-favorite", isLoggedIn ,(req, res) =>{
 
     //--> Recojo los valores de la receta en 'query'
-    const query = ({title, description, image, ingredients, steps, apiId} = req.body);
+    const query = ({title, summary, image, ingredients, steps, apiId} = req.body);
     //--> Es la id de esta receta en la API externa
     const idToCheck = req.body.apiId;
     // const { apiId } = req.body
@@ -53,22 +53,23 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
             //...la creo
             Recipe.create(query)
             .then((recetaRecienCreada) => {
+
                 //Vamos a añadir el id nuevo de esta receta a la lista de favoritos del user
-                User.findByIdAndUpdate(req.user.id,{
-                    $push: { favorites: recetaRecienCreada} 
+                User.findByIdAndUpdate(req.session.currentUser._id ,{
+                    $push: { favorites: recetaRecienCreada._id} 
                 })
             })
             .catch((err) => console.log(err));
 
         }else {
             //Busca el usuario en el que queremos incluir el favorito
-            User,findById(req.user.id)
+            User.findById(req.session.currentUser._id)
             .then((userEncontrado) => {
                 //Compruebo que este usuario NO tenga ya esta receta en su lista de favoritos
                 if(!userEncontrado.favorites.includes(recetaFound.id)){
                     //En caso de no tenerla
                     //Añade la id nueva de esta receta a la lista de favoritos del user
-                    User.findByIdAndUpdate(req.user.id, {
+                    User.findByIdAndUpdate(req.session.currentUser._id, {
                         $push: { favorites: recetaFound.id }
                     })
                     
@@ -96,10 +97,9 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
 router.post('/recipe-search', (req, res, next) => {
     let ingredients = req.body.search
     RecipesAPI
-    .getOneRecipe(ingredients) 
+    .getRecipesWithIngredients(ingredients) 
     .then((result) =>{
         //const recipes = data.body.recipes.items;
-   console.log(result.data)
     res.render('recipes/recipe-search', {data: result.data})
     })
     .catch((err) =>
@@ -108,13 +108,14 @@ router.post('/recipe-search', (req, res, next) => {
 
 router.get('/recipes/:recipeId', (req, res, next) =>{
         RecipesAPI
-        .getRecipes(req.params.recipeId)
-        .then((data) =>{
-            const findRecipe = data.body.items;
-            res.render('recipes', {findRecipe})
+        .getOneRecipe(req.params.recipeId)
+        .then((recipe) =>{
+            const findRecipe = recipe.data;
+            console.log(findRecipe)
+            res.render('recipes/eachRecipe', {recipe: findRecipe})
         })
         .catch((err) =>
-        console.log ('The error while searching artists occurred: ', err))
+        console.log ('The error while searching recipe occurred: ', err))
     })
 
 
@@ -123,12 +124,14 @@ router.get('/recipes/:recipeId', (req, res, next) =>{
 
 router.post("/delete-favorite",isLoggedIn,(req,res)=>{
     const {id} = req.body
-    User.findByIdAndUpdate(req.user._id,{$pull : {favorites : id}})
+    User.findByIdAndUpdate(req.session.currentUser._id, {$pull : {favorites : id}})
     .then(()=>{
         res.redirect("/profile")
     })
     .catch(err => console.log(err))
 })
+
+
 
 /**
  * ---arrays
