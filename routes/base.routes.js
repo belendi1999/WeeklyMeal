@@ -10,7 +10,7 @@ router.get("/", (req, res, next) => {
 
 router.get("/profile", isLoggedIn, (req, res, next) =>{
 
-  User.findById(req.user._id)
+  User.findById(req.session.currentUser._id)
   .populate('favorites')
   .then((user) => {
     res.render("profile", {user: user});
