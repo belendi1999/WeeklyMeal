@@ -107,10 +107,16 @@ a {
   color: #00b7ff;
 }
 
-h1 {
+h3 {
   color: #474838;
 }
 
 .error{
   color: red;
 }
+
+.logo{
+  height: 50px;
+  margin-right: 5px;
+}
+
