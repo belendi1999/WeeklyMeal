@@ -107,7 +107,7 @@ a {
   color: #00b7ff;
 }
 
-h1 {
+h3 {
   color: #474838;
 }
 
@@ -116,6 +116,7 @@ h1 {
 }
 
 .logo{
-  height: 55px;
-  margin-right: 10px;
+  height: 50px;
+  margin-right: 5px;
 }
+
