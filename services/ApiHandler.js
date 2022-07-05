@@ -8,8 +8,8 @@ class RecipesApi {
     });
   }
 
-  getAllRecipes = () => this.api.get('/complexSearch?number=10&apiKey=2eeee54314954b658a830fb77ad646dc');
-  getOneRecipe = (ingredients) => this.api.get (`/findByIngredients?number=10&apiKey=2eeee54314954b658a830fb77ad646dc&ingredients=${ingredients}`);
+  getAllRecipes = () => this.api.get('/complexSearch?number=100&apiKey=2eeee54314954b658a830fb77ad646dc');
+  getOneRecipe = (ingredients) => this.api.get (`/findByIngredients?number=100&apiKey=2eeee54314954b658a830fb77ad646dc&ingredients=${ingredients}`);
 }
 
 

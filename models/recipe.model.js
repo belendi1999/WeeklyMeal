@@ -4,10 +4,12 @@ const { Schema, model } = require("mongoose");
 const recipeSchema = new Schema(
   {
     name: String,
-    status: String,
-    species: String,
-    gender: String,
+    description: String,
     image: String,
+    ingredients: String,
+    steps:  [{	
+      type: String
+    }],
     apiId: Number
   },
   {

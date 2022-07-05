@@ -40,7 +40,6 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
 router.post('/recipe-search', (req, res, next) => {
     let ingredients = req.body.search
     RecipesAPI
-
     .getOneRecipe(ingredients) 
     .then((result) =>{
         //const recipes = data.body.recipes.items;
