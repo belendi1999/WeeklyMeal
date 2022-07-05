@@ -55,9 +55,19 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
             .then((recetaRecienCreada) => {
             console.log("me he creado")
                 //Vamos a añadir el id nuevo de esta receta a la lista de favoritos del user
-                User.findByIdAndUpdate(req.session.currentUser._id ,{
-                    $push: { favorites: recetaRecienCreada._id} 
-                })
+                User.findByIdAndUpdate(
+                    { 
+                        _id: req.session.currentUser._id
+                    },
+                    {                        
+                        $push: { favorites: recetaRecienCreada._id }},
+                    function (error, success) {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            res.redirect(`/recipes/${apiId}`)
+                        }
+                    })
             })
             .catch((err) => console.log(err));
 
@@ -70,10 +80,19 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
                     //En caso de no tenerla
                     
                     //Añade la id nueva de esta receta a la lista de favoritos del user
-                    User.findByIdAndUpdate(req.session.currentUser._id, {
-                        
-                        $push: { favorites: recipeFound._id }
-                    })
+                    User.findByIdAndUpdate(
+                        { 
+                            _id: req.session.currentUser._id
+                        },
+                        {                        
+                            $push: { favorites: recipeFound._id }},
+                        function (error, success) {
+                            if (error) {
+                                console.log(error);
+                            } else {
+                                console.log(success);
+                            }
+                        })
                     
                 }
             })

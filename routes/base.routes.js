@@ -18,5 +18,16 @@ router.get("/profile", isLoggedIn, (req, res, next) =>{
  
 
 })
+router.get("/favorites", isLoggedIn, (req, res, next) =>{
+
+  User.findById(req.session.currentUser._id)
+  .populate('favorites')
+  .then((user) => {
+    res.render("recipes/favorites", {user: user});
+    console.log(user)
+  })
+ 
+
+})
 
 module.exports = router;
