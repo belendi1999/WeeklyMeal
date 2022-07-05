@@ -5,9 +5,11 @@ const userSchema = new Schema({
   username: String,
   password: String,
   favorites:  [{	
-    type: String
+    type: Schema.Types.ObjectId,
+    ref: 'Recipe'
   }]
-  //referencias de la bd characrters
+  //referencias de la bd characrters 
+
 });
 
 const User = model("User", userSchema);

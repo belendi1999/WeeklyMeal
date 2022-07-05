@@ -32,8 +32,23 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
     const { apiId } = req.body
     console.log(req.body)
 
-    
+    Recipe.create({
+        name,
+        description,
+        image,
+        ingredients,
+        steps,
+      });
+
+    Recipe
+    .findById(recipeId)
+    .populate('user')
+    .then(recipe => {
+        res.render('recipes/favorites.hbs', recipe)
+    })
+    .catch(err => console.log(err))
 })
+
 
 
 
