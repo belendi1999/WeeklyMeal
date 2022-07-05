@@ -81,7 +81,7 @@ text-decoration: none;
   text-decoration: none;
 }
 /* ------------ FORM SUBMIT BUTTON ------------ */
-.submit-button{
+.button{
   background: #FAFBE9;
   color: #D4A439;
   font-size: 15px;
@@ -98,7 +98,7 @@ text-decoration: none;
   margin-bottom: 5%;
 }
 
-.submit-button:hover {
+.button:hover {
   box-shadow: 0 10px 20px -4px #D4A439;
 }
 
