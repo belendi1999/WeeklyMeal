@@ -53,7 +53,7 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
             //...la creo
             Recipe.create(query)
             .then((recetaRecienCreada) => {
-
+            console.log("me he creado")
                 //Vamos a añadir el id nuevo de esta receta a la lista de favoritos del user
                 User.findByIdAndUpdate(req.session.currentUser._id ,{
                     $push: { favorites: recetaRecienCreada._id} 
@@ -66,11 +66,13 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
             User.findById(req.session.currentUser._id)
             .then((userEncontrado) => {
                 //Compruebo que este usuario NO tenga ya esta receta en su lista de favoritos
-                if(!userEncontrado.favorites.includes(recetaFound.id)){
+                if(!userEncontrado.favorites.includes(recipeFound._id)){
                     //En caso de no tenerla
+                    
                     //Añade la id nueva de esta receta a la lista de favoritos del user
                     User.findByIdAndUpdate(req.session.currentUser._id, {
-                        $push: { favorites: recetaFound.id }
+                        
+                        $push: { favorites: recipeFound._id }
                     })
                     
                 }
@@ -111,7 +113,7 @@ router.get('/recipes/:recipeId', (req, res, next) =>{
         .getOneRecipe(req.params.recipeId)
         .then((recipe) =>{
             const findRecipe = recipe.data;
-            console.log(findRecipe)
+    
             res.render('recipes/eachRecipe', {recipe: findRecipe})
         })
         .catch((err) =>
