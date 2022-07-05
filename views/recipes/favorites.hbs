@@ -1,0 +1,17 @@
+    
+
+{{#each favorites}}
+    <div class='col'>
+      <div class='card shadow-sm'>
+        <img src="{{image}}" alt="">
+        <p>{{title}}</p>
+        <p>{{summary}}</p>
+        <form action = "/delete-favorite" method="POST">
+          <input type="hidden" name="apiId" value={{this.id}}>
+          <button type="submit">Delete favorite</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}

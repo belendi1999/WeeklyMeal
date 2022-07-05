@@ -23,8 +23,8 @@ router.get("/favorites", isLoggedIn, (req, res, next) =>{
   User.findById(req.session.currentUser._id)
   .populate('favorites')
   .then((user) => {
-    res.render("recipes/favorites", {user: user});
-    console.log(user)
+    res.render("recipes/favorites", {favorites: user.favorites});
+    
   })
  
 
