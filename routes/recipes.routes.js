@@ -20,8 +20,7 @@ router.get('/recipes', isLoggedIn, (req, res)=>{
         .catch(err => console.log(err));
     //}
     //res.render("recipes/list")
-    
-    
+
 })
 
 // Busca cada tipo de recta
@@ -156,7 +155,13 @@ router.get("/my-menu", isLoggedIn, (req, res, next) => {
     res.render("recipes/my-menu");
   });
   
-
+//   RecipesAPI
+//         .getAllRecipes()
+//         .then((allRecipes) => {
+//             res.render('recipes/list', {recipes: allRecipes.data.results} )
+        
+//         })
+//         .catch(err => console.log(err));
 
 /**
  * ---arrays

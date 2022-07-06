@@ -1,11 +1,17 @@
     
 
 {{#each favorites}}
+  <div class='row row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 my-5'>
     <div class='col'>
       <div class='card shadow-sm'>
-        <img src="{{image}}" alt="">
+        <a href="recipes/{{this.apiId}}">
+          <img src="{{image}}" alt="imagen comida">
+        </a>
+        
         <p>{{title}}</p>
-        <p>{{summary}}</p>
+        
+        <p>{{summary}}</p> 
+        
         <form action = "/delete-favorite" method="POST">
           <input type="hidden" name="apiId" value={{this.id}}>
           <button type="submit">Delete favorite</button>
@@ -13,5 +19,4 @@
       </div>
     </div>
   </div>
-</div>
 {{/each}}
