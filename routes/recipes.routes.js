@@ -44,7 +44,6 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
     //     ingredients,
     //     steps,
     //   });
-
     //--> Busco en mi BBDD una receta que tenga esta api
     Recipe.findOne({apiId: idToCheck})
     .then((recipeFound) => {
