@@ -1,16 +1,15 @@
 <div class='container'>
   <h1>Choose your favorites recipes!</h1>
 
-  <div class='row row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 my-5'>
     <div>
-    <div>
-        <form action="/recipe-search" method="POST">
-        <input type="text" name="search" placeholder="Search for ingredients">
-        <button type="submit">Search</button>
-        </form>
+      <form action="/recipe-search" method="POST">
+      <input type="text" name="search" placeholder="Search for ingredients">
+      <button type="submit">Search</button>
+      </form>
     </div>
-</div> 
-  {{!-- image name status --}}
+
+  <div class='row row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 my-5'>
+   {{!-- image name status --}}
     {{#each recipes}}
     <div class='col'>
       <div class='card shadow-sm'>
