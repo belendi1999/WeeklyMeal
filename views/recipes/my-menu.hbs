@@ -14,7 +14,16 @@
     <tbody>
       <tr class="table-light">
         <td>comida</td>
-        <td></td>
+        <td>
+          {{!-- {{#each recipes}} --}}
+            <div class='card shadow-sm'>
+              <a class="image" href="recipes/{{this.id}}">
+                <img src="{{this.image}}" alt="imagen comida">
+              </a>
+              <p>{{this.title}}</p>
+            </div>
+          {{!-- {{/each}} --}}
+        </td>
         <td></td>
         <td></td>
         <td></td>

@@ -6,6 +6,7 @@ const Recipe = require("../models/recipe.model");
 const User = require("../models/User.model");
 const Api = require("../services/ApiHandler");
 const { findById } = require("../models/recipe.model");
+const RecipesApi = require("../services/ApiHandler");
 const RecipesAPI = new Api()
 
 router.get('/recipes', isLoggedIn, (req, res)=>{
@@ -20,8 +21,7 @@ router.get('/recipes', isLoggedIn, (req, res)=>{
         .catch(err => console.log(err));
     //}
     //res.render("recipes/list")
-    
-    
+
 })
 
 // Busca cada tipo de recta
@@ -153,9 +153,22 @@ router.post("/delete-favorite",isLoggedIn,(req,res)=>{
 
 // ---------- GET MY-MENU ----------
 router.get("/my-menu", isLoggedIn, (req, res, next) => {
-    res.render("recipes/my-menu");
+    RecipesApi
+        .getAllRecipes() 
+        .then((allRecipies) => {
+            res.render("recipes/my-menu", {recipies: allRecipies.data.results});
+        })
+        .catch(err => console.log(err));
   });
   
+//   RecipesAPI
+//         .getAllRecipes()
+//         .then((allRecipes) => {
+//             res.render('recipes/list', {recipes: allRecipes.data.results} )
+        
+//         })
+//         .catch(err => console.log(err));
+
 
 
 /**
