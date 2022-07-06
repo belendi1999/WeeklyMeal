@@ -60,13 +60,7 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
                     },
                     {                        
                         $push: { favorites: recetaRecienCreada._id }},
-                    function (error, success) {
-                        if (error) {
-                            console.log(error);
-                        } else {
-                            res.redirect(`/recipes/${apiId}`)
-                        }
-                    })
+                    ).then(() => res.redirect(`/recipes/${apiId}`))
             })
             .catch((err) => console.log(err));
 
@@ -84,15 +78,11 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
                             _id: req.session.currentUser._id
                         },
                         {                        
-                            $push: { favorites: recipeFound._id }},
-                        function (error, success) {
-                            if (error) {
-                                console.log(error);
-                            } else {
-                                console.log(success);
-                            }
-                        })
+                            $push: { favorites: recipeFound._id }}
+                        ).then(() => res.redirect(`/recipes/${apiId}`))
                     
+                }else{
+                    res.redirect(`/recipes/${apiId}`)
                 }
             })
             .catch((err) => {
@@ -143,7 +133,6 @@ router.get('/recipes/:recipeId', (req, res, next) =>{
 
 router.post("/delete-favorite",isLoggedIn,(req,res)=>{
     const {apiId} = req.body
-    console.log("ID IS " + apiId)
     User.findByIdAndUpdate({"_id": req.session.currentUser._id}, {$pull : {favorites : apiId}})
     .then(()=>{
         res.redirect("/favorites")
