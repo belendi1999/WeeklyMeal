@@ -31,26 +31,26 @@ router.get("/favorites", isLoggedIn, (req, res, next) =>{
 })
 
 router.post("/profile", isLoggedIn, (req, res, next) => {
-  const {allergies, specialDiets, email, photo} = req.body
-  console.log(allergies)
+  const {allergies, specialDiets, email} = req.body
   User.findByIdAndUpdate(
     { 
         _id: req.session.currentUser._id
     },
     {                        
-        $push: { favorites: recetaRecienCreada._id }},
-    function (error, success) {
-        if (error) {
-            console.log(error);
-        } else {
-            res.redirect(`/recipes/${apiId}`)
-        }
+       allergies: allergies,
+       specialDiets: specialDiets,
+       email: email
+    },
+    {
+      new : true
+    }).then((user) => {
+
+      console.log(user)
+      res.render("user/profile", {user: user})
     })
-})
-  .then(()=>{
-    res.render("user/profile")
-})
-.catch(err => console.log(err))
+
+    
+    
 })
 
 module.exports = router;
