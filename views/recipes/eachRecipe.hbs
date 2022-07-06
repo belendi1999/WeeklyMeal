@@ -2,7 +2,7 @@
       <div class='card shadow-sm'>
         <img src="{{recipe.image}}" alt="">
         <p>{{recipe.title}}</p>
-        <p>{{recipe.summary}}</p>
+        <p>{{{recipe.summary}}}</p>
         <form action = "/add-favorite" method="POST">
           <input type="hidden" name="apiId" value={{recipe.id}}>
           <input type="hidden" name="title" value="{{recipe.title}}">
