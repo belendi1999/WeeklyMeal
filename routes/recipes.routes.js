@@ -113,7 +113,6 @@ router.post("/add-favorite", isLoggedIn ,(req, res) =>{
 
 
 
-
 router.post('/recipe-search', (req, res, next) => {
     let ingredients = req.body.search
     RecipesAPI
@@ -125,6 +124,8 @@ router.post('/recipe-search', (req, res, next) => {
     .catch((err) =>
         console.log ('The error while searching artists occurred: ', err))
     })
+
+
 
 router.get('/recipes/:recipeId', (req, res, next) =>{
         RecipesAPI
@@ -140,8 +141,6 @@ router.get('/recipes/:recipeId', (req, res, next) =>{
 
 
 
-
-
 router.post("/delete-favorite",isLoggedIn,(req,res)=>{
     const {id} = req.body
     User.findByIdAndUpdate(req.session.currentUser._id, {$pull : {favorites : id}})
@@ -151,6 +150,12 @@ router.post("/delete-favorite",isLoggedIn,(req,res)=>{
     .catch(err => console.log(err))
 })
 
+
+// ---------- GET MY-MENU ----------
+router.get("/my-menu", isLoggedIn, (req, res, next) => {
+    res.render("recipes/my-menu");
+  });
+  
 
 
 /**
