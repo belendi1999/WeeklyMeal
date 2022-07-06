@@ -6,6 +6,7 @@ const Recipe = require("../models/recipe.model");
 const User = require("../models/User.model");
 const Api = require("../services/ApiHandler");
 const { findById } = require("../models/recipe.model");
+const RecipesApi = require("../services/ApiHandler");
 const RecipesAPI = new Api()
 
 router.get('/recipes', isLoggedIn, (req, res)=>{
@@ -152,7 +153,12 @@ router.post("/delete-favorite",isLoggedIn,(req,res)=>{
 
 // ---------- GET MY-MENU ----------
 router.get("/my-menu", isLoggedIn, (req, res, next) => {
-    res.render("recipes/my-menu");
+    RecipesApi
+        .getAllRecipes() 
+        .then((allRecipies) => {
+            res.render("recipes/my-menu", {recipies: allRecipies.data.results});
+        })
+        .catch(err => console.log(err));
   });
   
 //   RecipesAPI
@@ -162,6 +168,8 @@ router.get("/my-menu", isLoggedIn, (req, res, next) => {
         
 //         })
 //         .catch(err => console.log(err));
+
+
 
 /**
  * ---arrays
