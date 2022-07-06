@@ -156,18 +156,21 @@ router.post("/delete-favorite",isLoggedIn,(req,res)=>{
 //     res.render("recipes/my-menu");   
 //   });
 
-  router.get("/my-menu", isLoggedIn, (req, res, next) =>{
+
+router.get("/my-menu", isLoggedIn, (req, res, next) =>{
     User.findById(req.session.currentUser._id)
     .populate('favorites')
     .then((user) => {
       res.render("recipes/my-menu", {favorites: user.favorites});
-
-      
-      
     })
-  })
-  
 
+    .findOne({favorites: user.favorites})
+    .then(() => {
+        Math.floor(Math.random() * favorites.estimatedDocumentCount());
+    })
+    .catch((err) => console.log(err));
+})
+  
 
 
 
