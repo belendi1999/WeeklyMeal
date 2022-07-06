@@ -15,14 +15,14 @@
       <tr class="table-light">
         <td>comida</td>
         <td>
-          {{!-- {{#each recipes}} --}}
+          {{#each favorites}}
             <div class='card shadow-sm'>
-              <a class="image" href="recipes/{{this.id}}">
+              <a class="image" href="recipes/{{this.apiId}}">
                 <img src="{{this.image}}" alt="imagen comida">
               </a>
               <p>{{this.title}}</p>
             </div>
-          {{!-- {{/each}} --}}
+          {{/each}}
         </td>
         <td></td>
         <td></td>

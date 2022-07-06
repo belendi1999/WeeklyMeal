@@ -152,22 +152,22 @@ router.post("/delete-favorite",isLoggedIn,(req,res)=>{
 
 
 // ---------- GET MY-MENU ----------
-router.get("/my-menu", isLoggedIn, (req, res, next) => {
-    RecipesApi
-        .getAllRecipes() 
-        .then((allRecipies) => {
-            res.render("recipes/my-menu", {recipies: allRecipies.data.results});
-        })
-        .catch(err => console.log(err));
-  });
+// router.get("/my-menu", isLoggedIn, (req, res, next) => {
+//     res.render("recipes/my-menu");   
+//   });
+
+  router.get("/my-menu", isLoggedIn, (req, res, next) =>{
+    User.findById(req.session.currentUser._id)
+    .populate('favorites')
+    .then((user) => {
+      res.render("recipes/my-menu", {favorites: user.favorites});
+
+      
+      
+    })
+  })
   
-//   RecipesAPI
-//         .getAllRecipes()
-//         .then((allRecipes) => {
-//             res.render('recipes/list', {recipes: allRecipes.data.results} )
-        
-//         })
-//         .catch(err => console.log(err));
+
 
 
 
