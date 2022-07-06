@@ -13,7 +13,7 @@ router.get("/profile", isLoggedIn, (req, res, next) =>{
   User.findById(req.session.currentUser._id)
   .populate('favorites')
   .then((user) => {
-    res.render("profile", {user: user});
+    res.render("user/profile", {user: user});
   })
  
 
@@ -28,6 +28,29 @@ router.get("/favorites", isLoggedIn, (req, res, next) =>{
   })
  
 
+})
+
+router.post("/profile", isLoggedIn, (req, res, next) => {
+  const {allergies, specialDiets, email, photo} = req.body
+  console.log(allergies)
+  User.findByIdAndUpdate(
+    { 
+        _id: req.session.currentUser._id
+    },
+    {                        
+        $push: { favorites: recetaRecienCreada._id }},
+    function (error, success) {
+        if (error) {
+            console.log(error);
+        } else {
+            res.redirect(`/recipes/${apiId}`)
+        }
+    })
+})
+  .then(()=>{
+    res.render("user/profile")
+})
+.catch(err => console.log(err))
 })
 
 module.exports = router;

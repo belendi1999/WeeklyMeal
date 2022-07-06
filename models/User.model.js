@@ -7,7 +7,10 @@ const userSchema = new Schema({
   favorites:  [{	
     type: Schema.Types.ObjectId,
     ref: 'Recipe'
-  }]
+  }],
+  allergies: String, 
+  specialDiets: String,
+  image: String,
   //referencias de la bd characrters 
 
 });

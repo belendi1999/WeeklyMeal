@@ -1,48 +1,51 @@
 
-<br>
-
-
+     
 <div class="wrapper">
     <div class="left">
         <img src="https://i.imgur.com/cMy8V5j.png" alt="user" width="100">
+        <p>Welcome to your profile</p>
         <h4>{{user.username}}</h4>
-         <p>UI Developer</p>
+      
     </div>
     <div class="right">
+      <form action = "/profile" method="POST">
         <div class="info">
-            <h3>Information</h3>
+            <h3>About me</h3>
             <div class="info_data">
+              <div>  <label for="email">
+          <textarea name="description" placeholder="add your email here"></textarea></div>
+               
+        </label>
                  <div class="data">
-                    <h4>Email</h4>
-                    <p>alex@gmail.com</p>
-                 </div>
-                 <div class="data">
-                   <h4>Phone</h4>
+                   <h4>Phone Number</h4>
                     <p>0001-213-998761</p>
               </div>
             </div>
         </div>
       
       <div class="projects">
-            <h3>Projects</h3>
+            <h3>Diet</h3>
             <div class="projects_data">
                  <div class="data">
-                    <h4>Recent</h4>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                    <h4>Allergies</h4>
+                     <label for="email">
+          <textarea name="allergies" placeholder="add your email here"></textarea></div>
+               
+        </label>
                  </div>
                  <div class="data">
-                   <h4>Most Viewed</h4>
-                    <p>dolor sit amet.</p>
+                   <h4>Special diets</h4>
+                     <label for="email">
+          <textarea name="diets" placeholder="add your email here"></textarea></div>
+               
+        </label>
               </div>
+              <button type="submit">Update profile</button>
             </div>
         </div>
-      
-        <div class="social_media">
-            <ul>
-              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-          </ul>
-      </div>
+      </form>
+        
+    
     </div>
 </div>
+   </form>
