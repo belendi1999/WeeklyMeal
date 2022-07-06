@@ -142,10 +142,11 @@ router.get('/recipes/:recipeId', (req, res, next) =>{
 
 
 router.post("/delete-favorite",isLoggedIn,(req,res)=>{
-    const {id} = req.body
-    User.findByIdAndUpdate({"_id": req.session.currentUser._id}, {$pull : {favorites : id}})
+    const {apiId} = req.body
+    console.log("ID IS " + apiId)
+    User.findByIdAndUpdate({"_id": req.session.currentUser._id}, {$pull : {favorites : apiId}})
     .then(()=>{
-        res.redirect("/profile")
+        res.redirect("/favorites")
     })
     .catch(err => console.log(err))
 })
