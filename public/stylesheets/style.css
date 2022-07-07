@@ -5,16 +5,23 @@ body {
   background-size: cover;
 }
 
-/* body:before {
+  body:before {
 	content:'';
 	position: absolute;
   top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-color: rgba(81,20,93,0.4);
-} */
+	background-color: rgba(255,247,255,0.4);
+}  
 
+.home{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+margin-top: 40%;
+}
 
 .fondo-text{
   position: absolute;
@@ -128,7 +135,8 @@ text-decoration: none;
 
 /* ------------ PREDETERMINADOS ------------ */
 a {
-  color: #00b7ff;
+  color: #51145D;
+  text-decoration: none;
 }
 
 h3 {
