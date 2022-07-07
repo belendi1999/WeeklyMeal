@@ -125,6 +125,10 @@ a {
   text-decoration: none;
 }
 
+a:hover{
+  color:#48817C;
+}
+
 h3 {
   font-size: 30px;
   color: #6682B1;
@@ -159,20 +163,20 @@ body{
 /* ------------ PERFIL ------------ */
 .wrapper{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 450px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   box-shadow: 0 1px 20px 0 rgba(69,90,100,.08);
 }
 
 .wrapper .left{
-  width: 35%;
-  background: linear-gradient(to right,#01a9ac,#01dbdf);
+  width: 25%;
+  background: linear-gradient(to right,#6C9A8D,#d6ede7);
   padding: 30px 25px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  /* border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px; */
   text-align: center;
   color: #fff;
 }
@@ -180,6 +184,7 @@ body{
 .wrapper .left img{
   border-radius: 5px;
   margin-bottom: 10px;
+  margin-top: 90px;
 }
 
 .wrapper .left h4{
@@ -190,12 +195,13 @@ body{
   font-size: 12px;
 }
 
+
 .wrapper .right{
-  width: 65%;
+  width: 75%;
   background: #fff;
   padding: 30px 25px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  /* border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; */
 }
 
 .wrapper .right .info,
@@ -211,6 +217,7 @@ body{
     color: #353c4e;
   text-transform: uppercase;
   letter-spacing: 5px;
+  margin-top: 90px;
 }
 
 .wrapper .right .info_data,
@@ -244,7 +251,7 @@ body{
 .wrapper .social_media ul li{
   width: 45px;
   height: 45px;
-  background: linear-gradient(to right,#01a9ac,#01dbdf);
+  background: linear-gradient(to right,#6C9A8D,#d6ede7);
   margin-right: 10px;
   border-radius: 5px;
   text-align: center;
