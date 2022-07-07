@@ -1,6 +1,6 @@
 
 
-  <div class='container'>
+  <div class='container '>
     <h1>My favorites</h1>
 
       <div>
@@ -9,13 +9,13 @@
           <button class="btn btn-outline-light" style="border-color: #51145D; color: #51145D;" type="submit">Search</button>
           </form>
       </div>
-
-    <div class='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 my-5'>
+{{!-- g-5 my-5 --}}
+    <div class='row row-cols-1 row-cols-sm-2 row-cols-md-3  justify-content-between'>
 
       {{!-- image name status --}}
       {{#each favorites}}
 
-        <div class='col'>
+        <div class='col margin-container'>
           <div class="title-m-t">
             <a class="image" href="recipes/{{this.apiId}}">
               <img src="{{image}}" alt="imagen comida">

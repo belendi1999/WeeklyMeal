@@ -1,48 +1,49 @@
-<div class="table-responsive">
-  <table class="table" class="table table-success table-striped" style="margin-top:5%">
-    <thead>
-      <th></th>
-      <th>Monday</th>
-      <th>Tuesday</th>
-      <th>Wednesday</th>
-      <th>Thursday</th>
-      <th>Friday</th>
-      <th>Saturday</th>
-      <th>Sunday</th>
-    </thead>
 
-    <tbody>
-      <tr class="table-light" style="background-color:#E8D5B5">
-        <td>Lunch</td>
-        
-          {{#each comida}} 
+  <div class="table-responsive" style="margin-top: 30px">
+    <table class="table" class="table table-success table-striped" style="margin-top:5%">
+      <thead>
+        <th></th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+      </thead>
 
-        <td> 
-            <div class='card shadow-sm w-75 h-100'>
-              <a class="image" href="recipes/{{this.apiId}}">
-               <img src="{{this.image}}" alt="imagen comida" style="width:100% !important;">
-              </a>
-              <p>{{this.title}}</p>
-            </div>
-        </td>     
-          {{/each}}  
-      </tr>
+      <tbody>
+        <tr class="table-light" style="background-color:#E8D5B5">
+          <td>Lunch</td>
+          
+            {{#each comida}} 
 
-      <tr class="table-light">
-        <td>Dinner</td>
-        
-          {{#each cena}} 
-
-        <td> 
-            <div class='card shadow-sm w-75'>
-              <a class="image" href="recipes/{{this.apiId}}">
+          <td> 
+              <div class='card shadow-sm w-75 h-100'>
+                <a class="image" href="recipes/{{this.apiId}}">
                 <img src="{{this.image}}" alt="imagen comida" style="width:100% !important;">
-              </a>
-              <p>{{this.title}}</p>
-            </div>
-        </td>     
-          {{/each}}  
-      </tr>
-    </tbody>
-  </table>
-</div>
+                </a>
+                <p>{{this.title}}</p>
+              </div>
+          </td>     
+            {{/each}}  
+        </tr>
+
+        <tr class="table-light">
+          <td>Dinner</td>
+          
+            {{#each cena}} 
+
+          <td> 
+              <div class='card shadow-sm w-75'>
+                <a class="image" href="recipes/{{this.apiId}}">
+                  <img src="{{this.image}}" alt="imagen comida" style="width:100% !important;">
+                </a>
+                <p>{{this.title}}</p>
+              </div>
+          </td>     
+            {{/each}}  
+        </tr>
+      </tbody>
+    </table>
+  </div>

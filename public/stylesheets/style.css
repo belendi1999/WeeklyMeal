@@ -1,10 +1,21 @@
 body {
-  padding: 50px;
+  /* padding: 50px; */
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("/images/comida-9.jpg");
-  background-size: cover;
 }
 
+.imagen-bc{
+  background-image: url("/images/comida-9.jpg");
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+/* .color-bc{
+  background-color:#FFEECA;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+} */
 
 .fondo-text{
   position: absolute;
@@ -147,6 +158,10 @@ h3 {
 
 .container h1{
   margin-top: 70px;
+}
+
+.margin-container{
+  margin: 80px 10px 0px 0px;
 }
 
 
