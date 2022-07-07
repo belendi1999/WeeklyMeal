@@ -5,13 +5,6 @@ body {
   background-size: cover;
 }
 
-.home{
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-items: center;
-margin-top: 50%;
-}
 
 .fondo-text{
   position: absolute;
@@ -116,7 +109,10 @@ text-decoration: none;
   border-color: #E8D5B5;
   cursor: pointer;
   border-radius:100px;
-  margin-bottom: 10%;
+  margin-bottom: 30px;
+}
+.frase{
+  margin-bottom: 5%;
 }
 
 .button:hover {
