@@ -145,6 +145,11 @@ h3 {
   margin-left: 30px;
 }
 
+.container h1{
+  margin-top: 70px;
+}
+
+
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 
 *{
@@ -263,6 +268,8 @@ body{
   display: block;
   font-size: 18px;
 }
+
+
 
 /* ------------ EACH RECIPE ------------ */
 
