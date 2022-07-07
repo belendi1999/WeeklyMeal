@@ -14,22 +14,72 @@
     <tbody>
       <tr class="table-light">
         <td>comida</td>
-        <td>
-          {{#each favorites}}
+        
+          {{#each comida}}
+        <td> 
             <div class='card shadow-sm'>
               <a class="image" href="recipes/{{this.apiId}}">
                 <img src="{{this.image}}" alt="imagen comida">
               </a>
               <p>{{this.title}}</p>
             </div>
-          {{/each}}
+        </td>     
+          {{/each}}  
+      
+        {{!-- <td>
+          {{comida[1]}}
+            <div class='card shadow-sm'>
+              <a class="image" href="recipes/{{this.apiId}}">
+                <img src="{{this.image}}" alt="imagen comida">
+              </a>
+              <p>{{this.title}}</p>
+            </div>
         </td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>
+          {{comida[2]}}
+            <div class='card shadow-sm'>
+              <a class="image" href="recipes/{{this.apiId}}">
+                <img src="{{this.image}}" alt="imagen comida">
+              </a>
+              <p>{{this.title}}</p>
+            </div>
+        </td>
+        <td>
+          {{comida[3]}}
+            <div class='card shadow-sm'>
+              <a class="image" href="recipes/{{this.apiId}}">
+                <img src="{{this.image}}" alt="imagen comida">
+              </a>
+              <p>{{this.title}}</p>
+            </div>
+        </td>
+        <td>
+          {{comida[4]}}
+            <div class='card shadow-sm'>
+              <a class="image" href="recipes/{{this.apiId}}">
+                <img src="{{this.image}}" alt="imagen comida">
+              </a>
+              <p>{{this.title}}</p>
+            </div>
+        </td>
+        <td>
+          {{comida[5]}}
+            <div class='card shadow-sm'>
+              <a class="image" href="recipes/{{this.apiId}}">
+                <img src="{{this.image}}" alt="imagen comida">
+              </a>
+              <p>{{this.title}}</p>
+            </div>
+        </td>
+        <td>
+          {{comida[6]}}
+            <div class='card shadow-sm'>
+              <a class="image" href="recipes/{{this.apiId}}">
+                <img src="{{this.image}}" alt="imagen comida">
+              </a>
+              <p>{{this.title}}</p>
+            </div>
+        </td> --}}
       </tr>
       <tr class="table-light">
         <td>cena</td>

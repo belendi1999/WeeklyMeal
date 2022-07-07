@@ -151,17 +151,24 @@ router.get("/my-menu", isLoggedIn, (req, res, next) =>{
     User.findById(req.session.currentUser._id)
     .populate('favorites')
     .then((user) => {
-      res.render("recipes/my-menu", {favorites: user.favorites});
+        const comida = []
+        const cena = []
+        let random 
+
+      for(let i  = 0; i<=7; i++){
+        random = Math.floor(Math.random() * user.favorites.length);
+        comida.push(user.favorites[random]);
+        random = Math.floor(Math.random() * user.favorites.length);
+        cena.push(user.favorites[random]);
+      }
+
+      res.render("recipes/my-menu", {comida, cena});
     })
 
-    .findOne({favorites: user.favorites})
-    .then(() => {
-        Math.floor(Math.random() * favorites.estimatedDocumentCount());
-    })
     .catch((err) => console.log(err));
 })
   
-
+// .estimatedDocumentCount()
 
 
 /**
