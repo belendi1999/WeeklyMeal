@@ -154,14 +154,14 @@ router.get("/my-menu", isLoggedIn, (req, res, next) =>{
         const comida = []
         const cena = []
         let random 
-
+        // console.log(user.favorites);
       for(let i  = 0; i<=7; i++){
         random = Math.floor(Math.random() * user.favorites.length);
         comida.push(user.favorites[random]);
         random = Math.floor(Math.random() * user.favorites.length);
         cena.push(user.favorites[random]);
       }
-
+      console.log(comida);
       res.render("recipes/my-menu", {comida, cena});
     })
 
