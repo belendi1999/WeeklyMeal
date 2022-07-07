@@ -1,18 +1,29 @@
- <div class='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 my-5'></div>
-{{#each data}}
- <div class='col'>
-        <div class='card shadow-sm'>
 
-<div>
-    <h1>{{this.title}}</h1>
-        <a class="image"
-        href="recipes/{{this.id}}">
-        <img src="{{this.image}}" alt="">
-        </a>
-</div>
-</div>
+<div class='container'>
+  <h1>Choose your favorites recipes!</h1>
 
-{{/each}} 
-</div>
-</div>
+     <div>
+        <form action="/recipe-search" method="POST">
+        <input type="text" name="search" placeholder="Search for ingredients">
+        <button type="submit">Search</button>
+        </form>
+      </div>
 
+  <div class='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 my-5'>
+
+   {{!-- image name status --}}
+    {{#each data}}
+
+      <div class='col'>
+        <div class="title-m-t">
+          <a class="image" href="recipes/{{this.id}}">
+            <img src="{{this.image}}" alt="">
+          </a>
+          
+          <p>{{this.title}}</p>
+        
+        </div>
+      </div>
+    {{/each}}    
+  </div>
+</div>

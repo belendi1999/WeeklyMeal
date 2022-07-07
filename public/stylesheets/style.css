@@ -268,7 +268,7 @@ body{
 
 .wrapper .recipe-left{
   width: 60%;
-  background: #DBE3F3;
+  background: #FFEECA;
   padding: 30px 25px;
   text-align: center;
   color: #fff;
@@ -280,7 +280,7 @@ body{
 
 .wrapper .recipe-right{
   width: 40%;
-  background: #DBE3F3;
+  background: #FFEECA;
   padding: 30px 25px;
 }
 
@@ -290,4 +290,8 @@ body{
 
 .wrapper .recipe-m-r{
   margin-right: 20px;
+}
+
+.title-m-t p{
+  margin-top: 10px;
 }
