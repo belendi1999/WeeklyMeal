@@ -1,5 +1,5 @@
 <div class="table-responsive">
-  <table class="table" class="table table-success table-striped">
+  <table class="table" class="table table-success table-striped" style="margin-top:5%">
     <thead>
       <th></th>
       <th>Monday</th>
@@ -12,15 +12,15 @@
     </thead>
 
     <tbody>
-      <tr class="table-light">
-        <td>comida</td>
+      <tr class="table-light" style="background-color:#E8D5B5">
+        <td>Lunch</td>
         
           {{#each comida}} 
 
         <td> 
-            <div class='card shadow-sm'>
+            <div class='card shadow-sm w-75 h-100'>
               <a class="image" href="recipes/{{this.apiId}}">
-                <img src="{{this.image}}" alt="imagen comida">
+               <img src="{{this.image}}" alt="imagen comida" style="width:100% !important;">
               </a>
               <p>{{this.title}}</p>
             </div>
@@ -29,14 +29,14 @@
       </tr>
 
       <tr class="table-light">
-        <td>cena</td>
+        <td>Dinner</td>
         
           {{#each cena}} 
 
         <td> 
-            <div class='card shadow-sm'>
+            <div class='card shadow-sm w-75'>
               <a class="image" href="recipes/{{this.apiId}}">
-                <img src="{{this.image}}" alt="imagen comida">
+                <img src="{{this.image}}" alt="imagen comida" style="width:100% !important;">
               </a>
               <p>{{this.title}}</p>
             </div>
