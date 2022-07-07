@@ -1,9 +1,20 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("/images/comida-2.jpg");
+  background-image: url("/images/comida-9.jpg");
   background-size: cover;
 }
+
+/* body:before {
+	content:'';
+	position: absolute;
+  top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(81,20,93,0.4);
+} */
+
 
 .fondo-text{
   position: absolute;
@@ -14,7 +25,7 @@ body {
   background: #9AACCF;
   border-radius: 10px;
   /* s */
-  margin: 40px 25px 10px 25px;
+  /* margin: 40px 25px 10px 25px; */
 }
 
 /* ------------ FORM STYLE ------------ */
@@ -112,7 +123,7 @@ text-decoration: none;
 }
 
 .button:hover {
-  box-shadow: 0 10px 20px -4px #E8D5B5;
+  box-shadow: 0 10px 20px -4px #51145D;
 }
 
 /* ------------ PREDETERMINADOS ------------ */
@@ -123,8 +134,7 @@ a {
 h3 {
   font-size: 30px;
   color: #E8D5B5;
-  margin-top: 40px;
-  margin-bottom: 25px;
+  margin: 40px 25px 25px 25px;
 }
 
 .error{
