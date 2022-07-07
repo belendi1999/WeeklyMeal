@@ -1,7 +1,20 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: linear-gradient(to right, #F2FEDC, #96BCAA);
+  background-image: url("/images/comida-2.jpg");
+  background-size: cover;
+}
+
+.fondo-text{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* width: auto; */
+  background: #9AACCF;
+  border-radius: 10px;
+  /* s */
+  margin: 40px 25px 10px 25px;
 }
 
 /* ------------ FORM STYLE ------------ */
@@ -11,7 +24,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  background: white;
+  background: #48817C;
   border-radius: 10px;
 }
 
@@ -23,7 +36,7 @@ body {
   align-items: center;
   align-content: space-between;
   margin-top: 5%;
-  color: #FAFFBE;
+  /* color: black; */
 }
 
 .form{
@@ -45,34 +58,34 @@ body {
   margin: 8px 0;
   box-sizing: border-box;
   border: none;
-  border-bottom: 2px solid #FAFFBE;
+  border-bottom: 2px solid #E8D5B5;
   border-radius: 30px;
-  background: #FAFBE9;
+  background: #FFF7FF;
 }
 
 .form label{
-  color: #D4A439;
+  color: #E8D5B5;
 }
 
 /* ------------ FORM LINKS AUTENTIFICACIÓN ------------ */
 #signup{
   font-size: 25px;
-  color:#D4A439;
+  color:#51145D;
   text-decoration: none;
 }
 
 #login{
   font-size: 25px;
-  color:#D4A439;
+  color:#51145D;
   text-decoration: none;
 }
 
 .text-form{
-  color: #cfcac4;
+  color: #FFF7FF;
 }
 
 .auth-link{
-color:#96BCAA;
+color: #FFE7FF;
 text-decoration: none;
 }
 
@@ -82,8 +95,8 @@ text-decoration: none;
 }
 /* ------------ FORM SUBMIT BUTTON ------------ */
 .button{
-  background: #FAFBE9;
-  color: #D4A439;
+  background: #FFF7FF;
+  color: #51145D;
   font-size: 15px;
   font-weight: 500;
   height: 50px;
@@ -92,14 +105,14 @@ text-decoration: none;
   border-radius: 1px;
   letter-spacing: 0.5px;
   border:1px;
-  border-color: #D4A439;
-  cursor:pointer;
+  border-color: #E8D5B5;
+  cursor: pointer;
   border-radius:100px;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
 }
 
 .button:hover {
-  box-shadow: 0 10px 20px -4px #D4A439;
+  box-shadow: 0 10px 20px -4px #E8D5B5;
 }
 
 /* ------------ PREDETERMINADOS ------------ */
@@ -108,7 +121,10 @@ a {
 }
 
 h3 {
-  color: #474838;
+  font-size: 30px;
+  color: #E8D5B5;
+  margin-top: 40px;
+  margin-bottom: 25px;
 }
 
 .error{
